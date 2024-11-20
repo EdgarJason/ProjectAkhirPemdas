@@ -1,1 +1,90 @@
+import java.util.Scanner;
+
+public class Resupply {
+
+    public Scanner scan = new Scanner(System.in);
+    public Komoditi komoditi = new Komoditi();
+
+    public void beliStok(){
+        System.out.println("Selamat datang di toko supply");
+        System.out.println("""
+                Silahkan memilih barang yang ingin Anda restock
+                1. Padi   ($200 / 100kg)
+                2. Jagung ($250 / 100kg)
+                3. Kacang ($300 / 100kg)
+                4. Kapas  ($350 / 100kg)
+                """);
+        int input = scan.nextInt();
+
+        switch(input){
+            case 1 -> {
+                System.out.println("Berapa banyak yang ingin Anda beli?(per 100 kg)");
+                int beliPadi = scan.nextInt();
+                int resupplyPadi = beliPadi*100;
+                int hargaPadi = (200*beliPadi);
+                    if(beliPadi> komoditi.getLumbungPadi()+ Komoditi.quan1[0]){
+                        System.out.println("Tidak dapat melakukan resupply, harap tambahkan kapasitas lumbung Anda");
+                    }
+                    else if(Main.uang < hargaPadi){
+                        System.out.println("Uang Anda tidak cukup");
+                    }
+                    else{
+                        Komoditi.quan1[0]+=resupplyPadi;
+                        Main.uang -=(200 *beliPadi);
+                    }
+            }
+            case 2 -> {
+                System.out.println("Berapa banyak yang ingin Anda beli? (per 100 kg)");
+                int beliJagung = scan.nextInt();
+                int resupplyJagung = beliJagung*100;
+                int hargaJagung = (250*beliJagung);
+                if(beliJagung> komoditi.getLumbungPadi()+ Komoditi.quan2[0]){
+                    System.out.println("Tidak dapat melakukan resupply, harap tambahkan kapasitas lumbung Anda");
+                }
+                else if(Main.uang < hargaJagung){
+                    System.out.println("Uang Anda tidak cukup");
+                }
+                else{
+                    Komoditi.quan2[0]+=resupplyJagung;
+                    Main.uang -=(250 *beliJagung);
+                }
+            }
+            case 3 -> {
+                System.out.println("Berapa banyak yang ingin Anda beli?(per 100 kg)");
+                int beliKacang = scan.nextInt();
+                int resupplyKacang = beliKacang*100;
+                int hargaKacang = (300*beliKacang);
+                if(beliKacang> komoditi.getLumbungPadi()+ Komoditi.quan3[0]){
+                    System.out.println("Tidak dapat melakukan resupply, harap tambahkan kapasitas lumbung Anda");
+                }
+                else if(Main.uang < hargaKacang){
+                    System.out.println("Uang Anda tidak cukup");
+                }
+                else{
+                    Komoditi.quan3[0]+=resupplyKacang;
+                    Main.uang -=(300 *beliKacang);
+                }
+            }
+            case 4 -> {
+                System.out.println("Berapa banyak yang ingin Anda beli?(per 100 kg)");
+                int beliKapas  = scan.nextInt();
+                int resupplyKapas = beliKapas*100;
+                int hargaKapas = (350*beliKapas);
+                if(beliKapas> komoditi.getLumbungPadi()+ Komoditi.quan4[0]){
+                    System.out.println("Tidak dapat melakukan resupply, harap tambahkan kapasitas lumbung Anda");
+                }
+                else if(Main.uang < hargaKapas){
+                    System.out.println("Uang Anda tidak cukup");
+                }
+                else{
+                    Komoditi.quan4[0]+=resupplyKapas;
+                    Main.uang -=(350 *beliKapas);
+                }
+            }
+            default -> {
+                System.out.println("Pilihan tidak valid, Silahkan ulangi ya!");
+            }
+        }
+    }
+}
 

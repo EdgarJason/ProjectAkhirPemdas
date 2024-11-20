@@ -10,7 +10,7 @@ public class PowerUp {
     }
 
     public static void tampilPowerUp (){
-        System.out.println("Anda memiliki diskon resuply sebanyak : " + powerUpQuantity[0] );
+        System.out.println("Anda memiliki diskon resupply sebanyak : " + powerUpQuantity[0] );
         System.out.println("Anda memiliki penambah harga jual sebanyak : " + powerUpQuantity[1]);
         System.out.println("Anda memiliki perlindungan badai sebanyak : " + powerUpQuantity[2]);
     }
@@ -25,10 +25,13 @@ public class PowerUp {
     }
     public static long beliPowerUp(long x){
         int pilih =0;
-        System.out.print("1. Beli powerup diskon resuply ($1000)" +
-                            "2. Beli powerup penambah harga jual ($1000)" +
-                            "3. Beli powerup perlindungan badai ($1000)" +
-                            "Pilihan anda : " );
+        System.out.println("""
+                1. Beli PowerUp diskon resupply ($1000)
+                2. Beli PowerUp penambah harga jual ($1000)
+                3. Beli PowerUp perlindungan badai ($1000)
+                """);
+
+        System.out.print("Pilihan Anda = ");
         Scanner input = new Scanner(System.in);
         pilih = input.nextInt();
         switch ( pilih ){

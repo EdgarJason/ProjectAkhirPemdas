@@ -6,15 +6,15 @@ public class Gacha {
 
     public void Taruhan() {
         System.out.println("""
-                Selamat datang, disini Anda akan mempertaruhkan uang dan pertanian Anda!
+                Selamat datang, disini Anda akan mempertaruhkan uang Anda!
                 Baik kalah maupun menang, silahkan tanggung resikonya!
                 """);
 
-        System.out.print("Yakin Anda ingin mempertaruhkannya? (Y?N) = ");
+        System.out.print("Yakin Anda ingin mempertaruhkan uang Anda? (Y/N) = ");
         String pilihan = scan.next();
 
         if(pilihan.equalsIgnoreCase("y")) {
-            int randomizer = (int) (Math.random() * 10);
+            int randomizer = (int) (Math.random() * 8);
 
             System.out.println(randomizer);
 
@@ -33,25 +33,24 @@ public class Gacha {
                     Main.uang += 100000;
                 }
                 case 3 -> {
-                    System.out.println("Yah, lumbung kamu habis dimakan tikus!");
-
+                    System.out.println("Yah, kamu ga dapet apa-apa");
                 }
                 case 4 -> {
-                    System.out.println("Selamat, ada hujan Padi sebanyak 100 kg");
-
+                    System.out.println("Kamu diwajibkan bayar pajak sebanyak $1,000");
+                    Main.uang -= 1000;
                 }
                 case 5 -> {
                     System.out.println("Zonk, kamu ga dapet apa-apa");
                 }
-                case 8 -> {
+                case 6 -> {
                     System.out.println("Asik, uangmu dikali 2");
                     Main.uang *= 2;
                 }
-                case 9 -> {
+                case 7 -> {
                     System.out.println("Lisensi penjualanmu dibekukan, bayar denda $20,000");
                     Main.uang -= 20000;
                 }
-                case 10 -> {
+                case 8 -> {
                     System.out.println("Pertanian kamu disantet! Ilmu gelap menghantui pertanian kamu!!");
                     System.out.println("""
                             Bagaimana solusinya?
@@ -68,16 +67,16 @@ public class Gacha {
                             System.out.println("Dukunnya gadungan! Lumbungmu dihabiskan oleh mba kunti");
                         }
                         case 2 -> {
-                            System.out.println("Lah kok malah dibiarin. Seluruh uangmu jadi hilang!");
+                            System.out.println("Lah kok malah dibiarin. Seluruh uangmu jadi hilang dong!");
                             Main.uang = 0;
                         }
                         case 3 -> {
-                            System.out.println("Dewa membantumu dan lumbungmu selamat! Bahkan uangmu bertambah $2,000");
+                            System.out.println("Dewa Langit membantumu dan lumbungmu selamat! Bahkan uangmu ditambah $2,000");
                             Main.uang += 2000;
                         }
                         default -> {
-                            System.out.println("Pilihanmu salah, Tuyul pun mencuri uangmu sebanyak $20,000");
-                            Main.uang -= 1500;
+                            System.out.println("Pilihanmu salah, Tuyul pun menghabiskan semua uangmu");
+                            Main.uang *= 0;
                         }
                     }
                 }

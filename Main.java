@@ -9,7 +9,9 @@ public class Main {
     static Komoditi komoditi = new Komoditi();
     static Upgrade upgrade1 = new Upgrade();
     public static void main(String[] args) {
-
+        Jualan jualan = new Jualan();
+        Gacha gacha = new Gacha();
+        Upgrade upgrade = new Upgrade();
         int pilihan;
 
         //tampilan awal untuk registrasi
@@ -24,10 +26,10 @@ public class Main {
         System.out.println("""
                 Selamat, Pertanian Anda telah dibuat!
                 
-                Presiden telah memberikan Anda bundle komoditi di awal sebanyak 500 kg masing-masing komoditi 
-                dan uang awal sebanyak $5,000 untuk memulai pertanian Anda.
+                Presiden memberikan Anda hadiah komoditi di awal sebanyak 500 kg masing-masing komoditi 
+                dan uang awal sebanyak $5,000 untuk modal awal memulai pertanian Anda.
                 
-                Pergunakan modal awal tersebut dengan bijak!
+                Pergunakan hadiah tersebut dengan bijak!
                 
                 Selamat bekerja....
                 
@@ -37,12 +39,15 @@ public class Main {
         do{
             int jagung = Komoditi.getJagung();
             int padi = Komoditi.getPadi();
+            int kapas = Komoditi.getKapas();
+            int kacang = Komoditi.getKacang();
+
             counter++;
             powerUp.perlindunganBadai(counter);
 
             //nama
             System.out.printf("""
-                    ---------------------------------
+                    \n---------------------------------
                     Farm Name : %s
                     Owner     : %s
                     ---------------------------------
@@ -50,17 +55,18 @@ public class Main {
 
             //status uang dan komoditi
             System.out.printf("""
-                    STATUS
+                    ~STATUS~
                     Komoditi Anda
-                    Padi %dkg
-                    Jagung %dkg
-                    
+                    Padi %d kg
+                    Jagung %d kg
+                    Kacang %d kg
+                    Kapas %d kg
                     
                     Uang
                     $ %s
                     
                     Power Ups
-                    """,padi,jagung,uang);
+                    """,padi,jagung,kacang,kapas,uang);
             PowerUp.tampilPowerUp();
             System.out.print("                    \n" +
                     "---------------------------------\n");
@@ -68,7 +74,6 @@ public class Main {
             //menu
             System.out.println("""
                     Menu:
-                    Uang Anda tersisa:
                     1. Resupply
                     2. Jual Barang
                     3. Gacha
@@ -85,27 +90,27 @@ public class Main {
             switch(pilihan){
                 case 1 -> {
                     System.out.println("RESUPPLY");
+                    Resupply resupply = new Resupply();
+                    resupply.beliStok();
                 }
 
                 case 2 -> {
                     System.out.println("JUAL BARANG");
-
+                    jualan.jualTampil();
                 }
 
                 case 3 -> {
                     System.out.println("GACHA");
-                    Gacha gacha = new Gacha();
                     gacha.Taruhan();
                 }
 
                 case 4 -> {
                     System.out.println("POWER UP");
-                   uang = powerUp.beliPowerUp(uang);
+                    uang = powerUp.beliPowerUp(uang);
                 }
 
                 case 5 -> {
                     System.out.println("UPGRADE");
-                    Upgrade upgrade = new Upgrade();
                     upgrade.UpgradeMain();
                 }
 

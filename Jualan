@@ -1,1 +1,38 @@
+public class Jualan {
+    public String[] nama2 ={"Asep Bensin","Sigit Kopling","Alex Stang","Budiono Siregar","Ucok Knalpot","Bunda Rahma","Dek Ambalabu","VENA Arteri Kapiler"};
+    public String[] komoditi = {"Padi","Jagung","Kacang","Kapas"};
+    Upgrade upgrade1 =  new Upgrade();
+    public int pilih;
+    public int randomizer;
+    Komoditi komoditiObj = new Komoditi();
+
+    public void randomKomo(){
+        randomizer = (int)((Math.random()*9)-1);
+        if( upgrade1.getKomoTam() == 0 ) {
+         this.pilih = (int)Math.floor((Math.random()*2));
+        }
+        else if( upgrade1.getKomoTam() == 1 ) {
+           this.pilih = (int)Math.floor((Math.random()*3));
+        }
+        else if( upgrade1.getKomoTam() == 2 ) {
+            this.pilih = (int)Math.floor((Math.random()*4));
+        }
+    }
+    public void jualTampil(){
+        randomKomo();
+        System.out.println(nama2[randomizer] +" Membeli " + komoditi[pilih]);
+        if (this.pilih == 0){
+            komoditiObj.jualKomoditiPadi();
+        }
+        else if (this.pilih == 1){
+            komoditiObj.jualKomoditijagung();
+        }
+        else if (this.pilih == 2){
+            komoditiObj.jualKomoditiKacang();
+        }
+        else if (this.pilih == 3){
+            komoditiObj.jualKomoditiKapas();
+        }
+    }
+}
 

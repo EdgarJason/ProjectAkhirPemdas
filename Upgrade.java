@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Upgrade {
     public static Scanner scan = new Scanner(System.in);
-
+    public int komoTam = 0;
     public void UpgradeMain() {
         int lumbung = 1000;
         int quality = 15000;
@@ -16,6 +16,7 @@ public class Upgrade {
                 """);
 
         int pilUp = scan.nextInt();
+        scan.nextLine();
 
         switch (pilUp) {
             case 1 -> {
@@ -24,13 +25,13 @@ public class Upgrade {
                 String in = scan.next();
 
                 if (in.equalsIgnoreCase("padi")) {
-                    int x = UpLumbung(lumbung);
+                    int x = UpLumbungPadi(lumbung);
                 } else if (in.equalsIgnoreCase("jagung")) {
-                    int x = UpLumbung(lumbung);
+                    int x = UpLumbungJagung(lumbung);
                 } else if (in.equalsIgnoreCase("kacang")) {
-                    int x = UpLumbung(lumbung);
+                    int x = UpLumbungKacang(lumbung);
                 } else if (in.equalsIgnoreCase("Kapas")) {
-                    int x = UpLumbung(lumbung);
+                    int x = UpLumbungKapas(lumbung);
                 }
             }
 
@@ -41,15 +42,39 @@ public class Upgrade {
 
             case 3 -> {
                 System.out.println("Dalam hidup, terkadang diperlukan penambahan aspek aspek yang dapat menambah warna kehidupan. Sama seperti iyu, tambahkan komoditi baru sehingg variasi hasil komoditi Anda lebih banyak");
-                int c = UpKomo(newKomo);
+                UpKomo(newKomo);
             }
         }
     }
 
-    private int UpLumbung(int harga) {
+    private int UpLumbungPadi(int harga) {
 
         int hargabaru = 1000;
+        int kapasitasLumbungPadi = Komoditi.lumbungPadi;
+        System.out.printf("harga untuk upgrade adalah %d dollar\n", harga);
+        System.out.println("Apakah Anda yakin?(Y/N)");
+        scan.nextLine();
+        String t = scan.nextLine();
 
+        if (t.equalsIgnoreCase("y")) {
+            if (Main.uang < harga) {
+                System.out.println("Tidak dapat melakukan penambahan karena uang tidak cukup");
+            } else {
+                hargabaru += (harga * 0.45);
+                Main.uang -= hargabaru;
+                kapasitasLumbungPadi+=1000;
+                System.out.println("Uang Anda sekarang " + Main.uang);
+                System.out.println("kapasitas lumbung Anda sekarang adalah "+kapasitasLumbungPadi);
+            }
+        } else {
+            System.out.println("Anda akan kembali");
+        }
+        return hargabaru;
+    }
+    private int UpLumbungJagung(int harga) {
+
+        int hargabaru = 1000;
+        int kapasitasLumbungPadi = Komoditi.lumbungPadi;
         System.out.printf("harga untuk upgrade adalah %d dollar\n", harga);
         System.out.println("Apakah Anda yakin?(Y/N)");
         String t = scan.nextLine();
@@ -60,7 +85,55 @@ public class Upgrade {
             } else {
                 hargabaru += (harga * 0.45);
                 Main.uang -= hargabaru;
+                kapasitasLumbungPadi+=1000;
                 System.out.println("Uang Anda sekarang " + Main.uang);
+                System.out.println("kapasitas lumbung Anda sekarang adalah "+kapasitasLumbungPadi);
+            }
+        } else {
+            System.out.println("Anda akan kembali");
+        }
+        return hargabaru;
+    }
+    private int UpLumbungKacang(int harga) {
+
+        int hargabaru = 1000;
+        int kapasitasLumbungPadi = Komoditi.lumbungPadi;
+        System.out.printf("harga untuk upgrade adalah %d dollar\n", harga);
+        System.out.println("Apakah Anda yakin?(Y/N)");
+        String t = scan.nextLine();
+
+        if (t.equalsIgnoreCase("y")) {
+            if (Main.uang < harga) {
+                System.out.println("Tidak dapat melakukan penambahan karena uang tidak cukup");
+            } else {
+                hargabaru += (harga * 0.45);
+                Main.uang -= hargabaru;
+                kapasitasLumbungPadi+=1000;
+                System.out.println("Uang Anda sekarang " + Main.uang);
+                System.out.println("kapasitas lumbung Anda sekarang adalah "+kapasitasLumbungPadi);
+            }
+        } else {
+            System.out.println("Anda akan kembali");
+        }
+        return hargabaru;
+    }
+    private int UpLumbungKapas(int harga) {
+
+        int hargabaru = 1000;
+        int kapasitasLumbungPadi = Komoditi.lumbungPadi;
+        System.out.printf("harga untuk upgrade adalah %d dollar\n", harga);
+        System.out.println("Apakah Anda yakin?(Y/N)");
+        String t = scan.nextLine();
+
+        if (t.equalsIgnoreCase("y")) {
+            if (Main.uang < harga) {
+                System.out.println("Tidak dapat melakukan penambahan karena uang tidak cukup");
+            } else {
+                hargabaru += (harga * 0.45);
+                Main.uang -= hargabaru;
+                kapasitasLumbungPadi+=1000;
+                System.out.println("Uang Anda sekarang " + Main.uang);
+                System.out.println("kapasitas lumbung Anda sekarang adalah "+kapasitasLumbungPadi);
             }
         } else {
             System.out.println("Anda akan kembali");
@@ -93,7 +166,7 @@ public class Upgrade {
     private int UpKomo(int komo) {
 
         int hargaKomo = 10000;
-        int komoTam = 0;
+
 
         System.out.printf("Harga untuk upgrade adalah %d dollar", hargaKomo);
         System.out.println("Apakah Anda yakin?(Y/N)");
@@ -110,7 +183,7 @@ public class Upgrade {
                     Main.uang -= hargaKomo;
                     System.out.println("Sisa uang Anda+ " + Main.uang);
                 } else if (komoTam == 2) {
-                    System.out.println("Komoditas Selanjutnya Anda adalah Kacang");
+                    System.out.println("Komoditas Selanjutnya Anda adalah Kapas");
                     hargaKomo += (komo + 70000);
                     Main.uang -= hargaKomo;
                     System.out.println("Sisa uang Anda+ " + Main.uang);
@@ -121,5 +194,8 @@ public class Upgrade {
 
         }
         return hargaKomo;
+    }
+    public int getKomoTam(){
+        return komoTam;
     }
 }

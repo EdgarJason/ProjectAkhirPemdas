@@ -31,6 +31,7 @@ public class Badai {
            }
        }
    }
+
    public static void randomBadai(int x){
        int mulaiBadai = (int) Math.random()*100;
        if (mulaiBadai == 1 || mulaiBadai == 2 || mulaiBadai == 3){

@@ -32,12 +32,22 @@ public class Badai {
        }
    }
 
-   public static void randomBadai(int x){
-       int mulaiBadai = (int) Math.random()*100;
+   public static int randomBadai(int x){
+
+       int mulaiBadai = (int) Math.random()*3;
        if (mulaiBadai == 1 || mulaiBadai == 2 || mulaiBadai == 3){
-           tampilBadai();
-           Komoditi komoditi = new Komoditi();
-           Komoditi.reduceKomoditi();
+           if(x == 0) {
+               tampilBadai();
+               Komoditi komoditi = new Komoditi();
+               Komoditi.reduceKomoditi();
+               return 1;
+           }
+           else {
+               return 2;
+           }
+       }
+       else {
+           return 0;
        }
    }
 

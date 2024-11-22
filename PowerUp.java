@@ -14,14 +14,13 @@ public class PowerUp {
         System.out.println("Anda memiliki penambah harga jual sebanyak : " + powerUpQuantity[1]);
         System.out.println("Anda memiliki perlindungan badai sebanyak : " + powerUpQuantity[2]);
     }
-    public static void perlindunganBadai (int x){
-        if (powerUpQuantity[2] > 0){
-            powerUpQuantity[2] -= 1;
-        }
-        else {
+    public static void perlindunganBadai (){
+
             Badai badai = new Badai();
-            Badai.randomBadai(x);
-        }
+            int cek = Badai.randomBadai(powerUpQuantity[2]);
+            if (cek == 2 && powerUpQuantity[2] > 0){
+                powerUpQuantity[2] -= 1;
+            }
     }
     public static long beliPowerUp(long x){
         int pilih =0;
@@ -68,5 +67,28 @@ public class PowerUp {
 
         }
         return x;
+    }
+    public long penambahUang (long uang) {
+        long tambahUang;
+        tambahUang = (long) (uang * 0.5);
+
+        uang += tambahUang;
+        System.out.printf("Anda menggunakan Power Up dan mendapatkan penambahan uang sebesar %d sehingga uang anda menjadi %d\n", tambahUang, uang);
+        return uang;
+    }
+    public int getPowerUp1(){
+       return powerUpQuantity[1];
+    }
+    public void setPowerUpQuantity1(int x){
+        powerUpQuantity[1] = x;
+    }
+    public long diskonRE (long uang) {
+        if (powerUpQuantity[0] > 0){
+            powerUpQuantity[0] -= 1;
+            long diskon=200;
+            uang += diskon;
+            System.out.println("Anda berhasil menghemat "+diskon+" untuk resuply");
+        }
+        return uang;
     }
 }

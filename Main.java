@@ -8,7 +8,24 @@ public class Main {
     static PowerUp powerUp = new PowerUp();
     static Komoditi komoditi = new Komoditi();
     static Upgrade upgrade1 = new Upgrade();
+
+    static long lumbungPadiMain = Komoditi.getLumbungPadi();
+    static long lumbungJagungMain = Komoditi.getLumbungJagung();
+
+    static int jenisKomoJual;
+    static long komoditiJual;
+    static long uangJual;
+    public int komoTamMain = upgrade1.getKomoTam();
+
     public static void main(String[] args) {
+        Komoditi.setJumlahPadi(500);
+        Komoditi.setJumlahJagung(500);
+        long jagungMain = Komoditi.getJagung();
+        long padiMain = Komoditi.getPadi();
+        long kapasMain = Komoditi.getKapas();
+        long kacangMain = Komoditi.getKacang();
+
+
         Jualan jualan = new Jualan();
         Gacha gacha = new Gacha();
         Upgrade upgrade = new Upgrade();
@@ -37,13 +54,13 @@ public class Main {
 
         //looping menu
         do{
-            int jagung = Komoditi.getJagung();
+        /*    int jagung = Komoditi.getJagung();
             int padi = Komoditi.getPadi();
             int kapas = Komoditi.getKapas();
-            int kacang = Komoditi.getKacang();
+            int kacang = Komoditi.getKacang(); */
 
             counter++;
-            powerUp.perlindunganBadai(counter);
+            powerUp.perlindunganBadai();
 
             //nama
             System.out.printf("""
@@ -66,7 +83,7 @@ public class Main {
                     $ %s
                     
                     Power Ups
-                    """,padi,jagung,kacang,kapas,uang);
+                    """,padiMain,jagungMain,kacangMain,kapasMain,uang);
             PowerUp.tampilPowerUp();
             System.out.print("                    \n" +
                     "---------------------------------\n");
@@ -91,12 +108,53 @@ public class Main {
                 case 1 -> {
                     System.out.println("RESUPPLY");
                     Resupply resupply = new Resupply();
-                    resupply.beliStok();
+                    resupply.beliStok(padiMain, jagungMain, kacangMain, kapasMain, uang);
+                    int cek = resupply.getInput();
+                    if (cek == 1){
+                        padiMain= resupply.getPadiRE();
+                        uang = resupply.getUangSisa();
+                    }
+                    else if (cek == 2){
+                        jagungMain= resupply.getJagungRE();
+                        uang = resupply.getUangSisa();
+                    }
+                    else if (cek == 3){
+                        kacangMain= resupply.getKacangRE();
+                        uang = resupply.getUangSisa();
+                    }
+                    else if (cek == 4){
+                        kapasMain= resupply.getKapasRE();
+                        uang = resupply.getUangSisa();
+                    }
+                    uang = powerUp.diskonRE(uang);
                 }
 
                 case 2 -> {
                     System.out.println("JUAL BARANG");
-                    jualan.jualTampil();
+                    jenisKomoJual = jualan.jualTampil(padiMain, jagungMain, kacangMain, kapasMain, uang);
+                    komoditiJual = jualan.getKomoditiJual();
+                    uangJual = jualan.getUangJual();
+                    if (jenisKomoJual == 0){
+                        padiMain = komoditiJual;
+                        uang = uangJual;
+                    }
+                    else if (jenisKomoJual == 1){
+                        jagungMain = komoditiJual;
+                        uang = uangJual;
+                    }
+                    else if (jenisKomoJual == 2){
+                        kacangMain = komoditiJual;
+                        uang = uangJual;
+                    }
+                    else if (jenisKomoJual == 3){
+                        kapasMain = komoditiJual;
+                        uang = uangJual;
+                    }
+                    if (powerUp.getPowerUp1() > 0){
+                        powerUp.setPowerUpQuantity1(powerUp.getPowerUp1()-1);
+                        uang = powerUp.penambahUang(uang);
+                    }
+
                 }
 
                 case 3 -> {

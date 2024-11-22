@@ -15,13 +15,14 @@ public class Upgrade {
                 3. Tambah Komoditi Baru
                 """);
 
+        System.out.print("Masukkan pilihan Anda = ");
         int pilUp = scan.nextInt();
         scan.nextLine();
 
         switch (pilUp) {
             case 1 -> {
                 System.out.println("Bisnis yang sudah sangat berkembang membuat Anda harus menambah kapasitas di Lumbung Anda");
-                System.out.println("Lumbung Manakah yang mau Anda Upgrade?");
+                System.out.print("Lumbung Manakah yang mau Anda Upgrade?");
                 String in = scan.next();
 
                 if (in.equalsIgnoreCase("padi")) {
@@ -49,10 +50,10 @@ public class Upgrade {
 
     private int UpLumbungPadi(int harga) {
 
-        int hargabaru = 1000;
+        int hargabaru = harga;
         int kapasitasLumbungPadi = Komoditi.lumbungPadi;
         System.out.printf("harga untuk upgrade adalah %d dollar\n", harga);
-        System.out.println("Apakah Anda yakin?(Y/N)");
+        System.out.print("Apakah Anda yakin?(Y/N)");
         scan.nextLine();
         String t = scan.nextLine();
 
@@ -61,7 +62,7 @@ public class Upgrade {
                 System.out.println("Tidak dapat melakukan penambahan karena uang tidak cukup");
             } else {
                 hargabaru += (harga * 0.45);
-                Main.uang -= hargabaru;
+                Main.uang -= harga;
                 kapasitasLumbungPadi+=1000;
                 System.out.println("Uang Anda sekarang " + Main.uang);
                 System.out.println("kapasitas lumbung Anda sekarang adalah "+kapasitasLumbungPadi);
@@ -73,21 +74,21 @@ public class Upgrade {
     }
     private int UpLumbungJagung(int harga) {
 
-        int hargabaru = 1000;
-        int kapasitasLumbungPadi = Komoditi.lumbungPadi;
+        int hargabaru = harga;
+        int kapasitasLumbungJagung = Komoditi.lumbungJagung;
         System.out.printf("harga untuk upgrade adalah %d dollar\n", harga);
-        System.out.println("Apakah Anda yakin?(Y/N)");
+        System.out.print("Apakah Anda yakin?(Y/N)");
         String t = scan.nextLine();
 
         if (t.equalsIgnoreCase("y")) {
             if (Main.uang < harga) {
                 System.out.println("Tidak dapat melakukan penambahan karena uang tidak cukup");
             } else {
-                hargabaru += (harga * 0.45);
                 Main.uang -= hargabaru;
-                kapasitasLumbungPadi+=1000;
+                hargabaru += (harga * 0.45);
+                kapasitasLumbungJagung+=1000;
                 System.out.println("Uang Anda sekarang " + Main.uang);
-                System.out.println("kapasitas lumbung Anda sekarang adalah "+kapasitasLumbungPadi);
+                System.out.println("kapasitas lumbung Anda sekarang adalah "+kapasitasLumbungJagung);
             }
         } else {
             System.out.println("Anda akan kembali");
@@ -96,21 +97,21 @@ public class Upgrade {
     }
     private int UpLumbungKacang(int harga) {
 
-        int hargabaru = 1000;
-        int kapasitasLumbungPadi = Komoditi.lumbungPadi;
+        int hargabaru = harga;
+        int kapasitasLumbungKacang = Komoditi.lumbungKacang;
         System.out.printf("harga untuk upgrade adalah %d dollar\n", harga);
-        System.out.println("Apakah Anda yakin?(Y/N)");
+        System.out.print("Apakah Anda yakin?(Y/N)");
         String t = scan.nextLine();
 
         if (t.equalsIgnoreCase("y")) {
             if (Main.uang < harga) {
                 System.out.println("Tidak dapat melakukan penambahan karena uang tidak cukup");
             } else {
-                hargabaru += (harga * 0.45);
                 Main.uang -= hargabaru;
-                kapasitasLumbungPadi+=1000;
+                hargabaru += (harga * 0.45);
+                kapasitasLumbungKacang+=1000;
                 System.out.println("Uang Anda sekarang " + Main.uang);
-                System.out.println("kapasitas lumbung Anda sekarang adalah "+kapasitasLumbungPadi);
+                System.out.println("kapasitas lumbung Anda sekarang adalah "+kapasitasLumbungKacang);
             }
         } else {
             System.out.println("Anda akan kembali");
@@ -119,10 +120,10 @@ public class Upgrade {
     }
     private int UpLumbungKapas(int harga) {
 
-        int hargabaru = 1000;
-        int kapasitasLumbungPadi = Komoditi.lumbungPadi;
+        int hargabaru = harga;
+        int kapasitasLumbungKapas = Komoditi.lumbungKapas;
         System.out.printf("harga untuk upgrade adalah %d dollar\n", harga);
-        System.out.println("Apakah Anda yakin?(Y/N)");
+        System.out.print("Apakah Anda yakin?(Y/N)");
         String t = scan.nextLine();
 
         if (t.equalsIgnoreCase("y")) {
@@ -130,10 +131,10 @@ public class Upgrade {
                 System.out.println("Tidak dapat melakukan penambahan karena uang tidak cukup");
             } else {
                 hargabaru += (harga * 0.45);
-                Main.uang -= hargabaru;
-                kapasitasLumbungPadi+=1000;
+                Main.uang -= harga;
+                kapasitasLumbungKapas+=1000;
                 System.out.println("Uang Anda sekarang " + Main.uang);
-                System.out.println("kapasitas lumbung Anda sekarang adalah "+kapasitasLumbungPadi);
+                System.out.println("kapasitas lumbung Anda sekarang adalah "+kapasitasLumbungKapas);
             }
         } else {
             System.out.println("Anda akan kembali");
@@ -146,15 +147,15 @@ public class Upgrade {
         int hargaKuan = 15000;
 
         System.out.printf("harga untuk upgrade adalah %d dollar\n", quality);
-        System.out.println("Apakah Anda yakin?(Y/N)");
+        System.out.print("Apakah Anda yakin?(Y/N)");
         String t = scan.nextLine();
 
         if (t.equalsIgnoreCase("y")) {
             if (Main.uang < quality) {
                 System.out.println("Tidak dapat melakukan penambahan karena uang tidak cukup");
             } else {
-                hargaKuan += (quality * 0.5);
                 Main.uang -= hargaKuan;
+                hargaKuan += (quality * 0.5);
                 System.out.println("Uang Anda sekarang " + Main.uang);
             }
         } else {
@@ -169,7 +170,7 @@ public class Upgrade {
 
 
         System.out.printf("Harga untuk upgrade adalah %d dollar", hargaKomo);
-        System.out.println("Apakah Anda yakin?(Y/N)");
+        System.out.print("Apakah Anda yakin?(Y/N)");
         String t = scan.nextLine();
 
         if (t.equalsIgnoreCase("y")) {
@@ -179,13 +180,13 @@ public class Upgrade {
                 komoTam++;
                 if (komoTam == 1) {
                     System.out.println("Komoditas Selanjutnya Anda adalah Kacang");
-                    hargaKomo += (komo + 20000);
                     Main.uang -= hargaKomo;
+                    hargaKomo += (komo + 20000);
                     System.out.println("Sisa uang Anda+ " + Main.uang);
                 } else if (komoTam == 2) {
                     System.out.println("Komoditas Selanjutnya Anda adalah Kapas");
-                    hargaKomo += (komo + 70000);
                     Main.uang -= hargaKomo;
+                    hargaKomo += (komo + 70000);
                     System.out.println("Sisa uang Anda+ " + Main.uang);
                 } else {
                     System.out.println("Komoditas Anda sudah maksimal");

@@ -4,7 +4,9 @@ public class Jualan {
     Upgrade upgrade1 =  new Upgrade();
     public int pilih;
     public int randomizer;
-    Komoditi komoditiObj = new Komoditi();
+    public static long komoditiJual;
+    public static long uangJual;
+
 
     public void randomKomo(){
         randomizer = (int)((Math.random()*9)-1);
@@ -18,21 +20,122 @@ public class Jualan {
             this.pilih = (int)Math.floor((Math.random()*4));
         }
     }
-    public void jualTampil(){
+    public int jualTampil(long padi, long jagung, long kacang, long kapas, long uang){
         randomKomo();
         System.out.println(nama2[randomizer] +" Membeli " + komoditi[pilih]);
         if (this.pilih == 0){
-            komoditiObj.jualKomoditiPadi();
+            jualKomoditiPadi(padi, uang);
         }
         else if (this.pilih == 1){
-            komoditiObj.jualKomoditijagung();
+            jualKomoditijagung(jagung,uang);
         }
         else if (this.pilih == 2){
-            komoditiObj.jualKomoditiKacang();
+            jualKomoditiKacang(kacang,uang);
         }
         else if (this.pilih == 3){
-            komoditiObj.jualKomoditiKapas();
+            jualKomoditiKapas(kapas,uang);
         }
+        return this.pilih;
+    }
+    public void jualKomoditiPadi(long padi, long uang){
+        long terjual1;
+        terjual1 =  (long) (padi * Math.random());
+        if (padi == 0){
+            System.out.println("Komoditi habis, segera resupply");
+        }
+        else if (terjual1 >= padi) {
+            terjual1 = padi;
+
+            padi = padi - terjual1;
+            System.out.printf("Anda berhasil menjual padi sebanyak %dKg\n", terjual1);
+            uang += terjual1 * 3;
+            System.out.println("Anda dapat uang sebanyak" + terjual1);
+        }
+        else {
+            padi = padi - terjual1;
+            System.out.printf("Anda berhasil menjual padi sebanyak %dKg\n", terjual1);
+            uang += terjual1 * 3;
+            System.out.println("Anda dapat uang sebanyak" + terjual1);
+        }
+        komoditiJual = padi;
+        uangJual = uang;
+    }
+    public void jualKomoditijagung(long jagung, long uang){
+        long terjual2;
+
+        terjual2 = (long) (jagung * Math.random());
+        if (jagung == 0){
+            System.out.println("Komoditi habis, segera resupply");
+        }
+        else if (terjual2 >= jagung) {
+            terjual2 = jagung;
+            jagung = jagung - terjual2;
+            System.out.printf("Anda berhasil menjual jagung sebanyak %d kg\n", terjual2);
+            uang += terjual2 * 4;
+            System.out.println("Anda dapat uang sebanyak" + terjual2);
+        }
+        else {
+            jagung = jagung - terjual2;
+            System.out.printf("Anda berhasil menjual jagung sebanyak %d kg\n", terjual2);
+            uang += terjual2 * 4;
+            System.out.println("Anda dapat uang sebanyak" + terjual2);
+        }
+
+        komoditiJual = jagung;
+        uangJual = uang;
+    }
+
+    public static void jualKomoditiKacang(long kacang, long uang){
+        long terjual4;
+        terjual4 = (int) (kacang * Math.random());
+        if(kacang == 0){
+            System.out.println("Komoditi habis, segera resupply");
+        }
+        else if (terjual4 >= kacang) {
+            terjual4 = kacang;
+            kacang = kacang - terjual4;
+            System.out.printf("Anda berhasil menjual jagung sebanyak %d kg\n", terjual4);
+            uang += terjual4 * 4;
+            System.out.println("Anda dapat uang sebanyak" + terjual4);
+        }
+        else {
+            kacang = kacang - terjual4;
+            System.out.printf("Anda berhasil menjual jagung sebanyak %d kg\n", terjual4);
+            uang += terjual4 * 4;
+            System.out.println("Anda dapat uang sebanyak" + terjual4);
+        }
+        komoditiJual = kacang;
+        uangJual = uang;
+    }
+    public static void jualKomoditiKapas(long kapas, long uang){
+        long terjual3;
+        terjual3 = (long) (kapas * Math.random());
+        if(kapas == 0){
+            System.out.println("Komoditi habis, segera resupply");
+        }
+        else if (terjual3 >= kapas) {
+            terjual3 = kapas;
+            kapas = kapas - terjual3;
+            System.out.printf("Anda berhasil menjual jagung sebanyak %d kg\n", terjual3);
+            uang += terjual3 * 5;
+            System.out.println("Anda dapat uang sebanyak" + terjual3);
+        }
+        else {
+            kapas = kapas - terjual3;
+            System.out.printf("Anda berhasil menjual jagung sebanyak %d kg\n", terjual3);
+            uang += terjual3 * 4;
+            System.out.println("Anda dapat uang sebanyak" + terjual3);
+        }
+        komoditiJual = kapas;
+        uangJual = uang;
+    }
+
+
+    public static long getKomoditiJual(){
+        return komoditiJual;
+    }
+    public static long getUangJual(){
+
+        return uangJual;
     }
 }
-

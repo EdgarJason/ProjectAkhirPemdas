@@ -12,13 +12,13 @@ public class Komoditi {
 
       public static int[] quan1 = new int [2];
         {
-            quan1[0] = 500;
+            quan1[0] = 0;
             quan1[1] = lumbungPadi;
         }
 
       public static int[] quan2 = new int[2];
         {
-            quan2[0] = 500;
+            quan2[0] = 0;
             quan2[1] = lumbungJagung;
         }
 
@@ -34,17 +34,17 @@ public class Komoditi {
             quan4[1] = lumbungKacang;
         }
 
-    public int getLumbungPadi(){
-        return this.lumbungPadi;
+    public static int getLumbungPadi(){
+        return lumbungPadi;
     }
-    public int getLumbungJagung(){
-        return this.lumbungJagung;
+    public static int getLumbungJagung(){
+        return lumbungJagung;
     }
-    public int getLumbungKapas(){
-        return this.lumbungKapas;
+    public static int getLumbungKapas(){
+        return lumbungKapas;
     }
-    public int getLumbungKacang(){
-        return this.lumbungKacang;
+    public static int getLumbungKacang(){
+        return lumbungKacang;
     }
 
     public void setLumbungPadi(int lumbungPadi){
@@ -66,84 +66,13 @@ public class Komoditi {
     public static void reduceKomoditi(){
         quan1 [0] = (int) quan1 [0] *(2/10);
         quan2 [0] = (int) quan2 [0] *(2/10);
+        quan3 [0] = (int) quan3 [0] *(2/10);
+        quan4 [0] = (int) quan4 [0] *(2/10);
     }
 
-    public static void jualKomoditiPadi(){
-        int terjual1;
-        terjual1 =  (int) (quan1[0] * Math.random());
-        if (quan1[0] == 0){
-            System.out.println("Komoditi habis, segera resupply");
-        }
-        else if (terjual1 >= quan1[0]) {
-            terjual1 = quan1[0];
 
-            quan1[0] = quan1[0] - terjual1;
-            System.out.printf("Anda berhasil menjual padi sebanyak %dKg\n", terjual1);
-            Main.uang += terjual1 * 3;
-        }
-        else {
-            quan1[0] = quan1[0] - terjual1;
-            System.out.printf("Anda berhasil menjual padi sebanyak %dKg\n", terjual1);
-            Main.uang += terjual1 * 3;
-        }
 
-    }
-    public static void jualKomoditijagung(){
-        int terjual2;
 
-        terjual2 = (int) (quan2[0] * Math.random());
-        if (quan2[0] == 0){
-            System.out.println("Komoditi habis, segera resupply");
-        }
-        else if (terjual2 >= quan2[0]) {
-            terjual2 = quan2[0];
-            quan2[0] = quan2[0] - terjual2;
-            System.out.printf("Anda berhasil menjual jagung sebanyak %d kg\n", terjual2);
-            Main.uang += terjual2 * 4;
-        }
-        else {
-            quan2[0] = quan2[0] - terjual2;
-            System.out.printf("Anda berhasil menjual jagung sebanyak %d kg\n", terjual2);
-            Main.uang += terjual2 * 4;
-        }
-
-    }
-    public static void jualKomoditiKapas(){
-        int terjual3;
-        terjual3 = (int) (quan3[0] * Math.random());
-        if(quan3[0] == 0){
-            System.out.println("Komoditi habis, segera resupply");
-        }
-        else if (terjual3 >= quan3[0]) {
-            terjual3 = quan3[0];
-            quan3[0] = quan3[0] - terjual3;
-            System.out.printf("Anda berhasil menjual jagung sebanyak %d kg\n", terjual3);
-            Main.uang += terjual3 * 5;
-        }
-        else {
-            quan2[0] = quan2[0] - terjual3;
-            System.out.printf("Anda berhasil menjual jagung sebanyak %d kg\n", terjual3);
-            Main.uang += terjual3 * 4;
-        }
-    }
-    public static void jualKomoditiKacang(){
-        int terjual4;
-        terjual4 = (int) (quan4[0] * Math.random());
-        if(quan4[0]==0){
-            System.out.println("Komoditi habis, segera resupply");
-        }
-        else if (terjual4 >= quan4[0]) {
-            terjual4 = quan4[0];
-            quan4[0] = quan4[0] - terjual4;
-            System.out.printf("Anda berhasil menjual jagung sebanyak %d kg\n", terjual4);
-            Main.uang += terjual4 * 4;
-        }
-        else {
-            quan2[0] = quan2[0] - terjual4;
-            System.out.printf("Anda berhasil menjual jagung sebanyak %d kg\n", terjual4);
-            Main.uang += terjual4 * 4;
-        }
-    }
 
     public static int getJagung(){
         int jagung = quan2[0];

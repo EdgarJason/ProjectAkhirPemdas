@@ -1,21 +1,24 @@
+/*
+KELOMPOK 11 :
+- EDGAR JASON HUSIN / 245150201111047
+- DAVE CARNEGIE ONGSAH / 245150200111070
+- AL-KHWARIZMI WIDYA BAGASKARA / 245150200111068
+ */
+
 import java.util.Scanner;
 
 public class Main {
 
     public static Scanner scan  = new Scanner(System.in);
-    public static int counter = 0;
     public static long uang = 5000;
     static PowerUp powerUp = new PowerUp();
     static Komoditi komoditi = new Komoditi();
     static Upgrade upgrade1 = new Upgrade();
 
-    static long lumbungPadiMain = Komoditi.getLumbungPadi();
-    static long lumbungJagungMain = Komoditi.getLumbungJagung();
-
     static int jenisKomoJual;
     static long komoditiJual;
     static long uangJual;
-    public int komoTamMain = upgrade1.getKomoTam();
+    public static int komoTamMain = upgrade1.getKomoTam();
 
     public static void main(String[] args) {
         Komoditi.setJumlahPadi(500);
@@ -25,68 +28,98 @@ public class Main {
         long kapasMain = Komoditi.getKapas();
         long kacangMain = Komoditi.getKacang();
 
-
         Jualan jualan = new Jualan();
         Gacha gacha = new Gacha();
         Upgrade upgrade = new Upgrade();
         int pilihan;
 
         //tampilan awal untuk registrasi
-        System.out.println("---FARMER TYCOON---");
-        System.out.println("Silahkan lakukan registrasi terlebih dahulu");
+        System.out.println("\u001B[32m");
+        System.out.println("""
+                ███████╗ █████╗ ██████╗ ███╗   ███╗███████╗██████╗ ███████╗    ████████╗██╗   ██╗ ██████╗ ██████╗  ██████╗ ███╗   ██╗
+                ██╔════╝██╔══██╗██╔══██╗████╗ ████║██╔════╝██╔══██╗██╔════╝    ╚══██╔══╝╚██╗ ██╔╝██╔════╝██╔═══██╗██╔═══██╗████╗  ██║
+                █████╗  ███████║██████╔╝██╔████╔██║█████╗  ██████╔╝███████╗       ██║    ╚████╔╝ ██║     ██║   ██║██║   ██║██╔██╗ ██║
+                ██╔══╝  ██╔══██║██╔══██╗██║╚██╔╝██║██╔══╝  ██╔══██╗╚════██║       ██║     ╚██╔╝  ██║     ██║   ██║██║   ██║██║╚██╗██║
+                ██║     ██║  ██║██║  ██║██║ ╚═╝ ██║███████╗██║  ██║███████║       ██║      ██║   ╚██████╗╚██████╔╝╚██████╔╝██║ ╚████║
+                ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝╚══════╝       ╚═╝      ╚═╝    ╚═════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝
+                Made by kelompok suka tidur (Bagas, Edgar, Dave)                                                                                                 \s
+                """);
+
+        System.out.println("\u001B[0m");
+        System.out.println("""
+                Selamat datang di Farmer Tycoon!
+                Kamu menjadi seorang tengkulak yang menjual hasil pertanian dan mendapatkan keuntungan.
+                Dalam game ini kemampuan berjualan dan manajemen keuangan kamu akan diuji!
+                Secara bertahap, komoditi akan terbuka sesuai update.
+                Kamu dapat melakukan berbagai upgrade dan bahkan Gacha!
+                
+                """);
+
+        System.out.println("Sebelum bermain, silahkan lakukan registrasi terlebih dahulu");
 
         System.out.print("Nama Pertanian Anda = ");
         String namaTempat = scan.nextLine();
+
         System.out.print("Nama Anda = ");
         String namaUser = scan.nextLine();
 
         System.out.println("""
-                Selamat, Pertanian Anda telah dibuat!
+                Selamat, Lumbung Anda telah dibuat!
                 
                 Presiden memberikan Anda hadiah komoditi di awal sebanyak 500 kg masing-masing komoditi 
-                dan uang awal sebanyak $5,000 untuk modal awal memulai pertanian Anda.
+                dan uang awal sebanyak $5,000 untuk modal awal memulai bisnis pertanian Anda.
                 
                 Pergunakan hadiah tersebut dengan bijak!
                 
                 Selamat bekerja....
-                
                 """);
 
         //looping menu
         do{
-        /*    int jagung = Komoditi.getJagung();
-            int padi = Komoditi.getPadi();
-            int kapas = Komoditi.getKapas();
-            int kacang = Komoditi.getKacang(); */
+            long lumbungPadiMain = Komoditi.getLumbungPadi();
+            long lumbungJagungMain = Komoditi.getLumbungJagung();
+            long lumbungKacangMain = Komoditi.getLumbungKacang();
+            long lumbungKapasMain = Komoditi.getLumbungKapas();
 
-            counter++;
-            powerUp.perlindunganBadai();
+            if (komoTamMain == 0){
+                lumbungKacangMain = 0;
+                lumbungKapasMain = 0;
+            } else if (komoTamMain == 1) {
+                lumbungKapasMain= 0;
+            }
+
+            int cekBadai = powerUp.perlindunganBadai(padiMain,jagungMain,kacangMain,kapasMain);
+            if(cekBadai==1){
+                padiMain = powerUp.getPadiPU();
+                jagungMain = powerUp.getJagungPU();
+                kacangMain = powerUp.getKacangPU();
+                kapasMain = powerUp.getKapasPU();
+            }
 
             //nama
             System.out.printf("""
-                    \n---------------------------------
+                    \n------------------------------------------------------------------------------------------
                     Farm Name : %s
                     Owner     : %s
-                    ---------------------------------
+                    ------------------------------------------------------------------------------------------
                     """,namaTempat,namaUser);
 
             //status uang dan komoditi
             System.out.printf("""
-                    ~STATUS~
-                    Komoditi Anda
-                    Padi %d kg
-                    Jagung %d kg
-                    Kacang %d kg
-                    Kapas %d kg
+                    KOMODITI  >> Padi %d kg | Jagung %d kg | Kacang %d kg | Kapas %d kg
                     
-                    Uang
-                    $ %s
+                    LUMBUNG   >> Padi %d kg | Jagung %d kg | Kacang %d kg | Kapas %d kg
                     
-                    Power Ups
-                    """,padiMain,jagungMain,kacangMain,kapasMain,uang);
+                    UANG      >> $ %s
+                    
+                    POWER-UPS >> """,padiMain,jagungMain,kacangMain,kapasMain,lumbungPadiMain,lumbungJagungMain,
+                    lumbungKacangMain,lumbungKapasMain,uang);
+
+
+
             PowerUp.tampilPowerUp();
             System.out.print("                    \n" +
-                    "---------------------------------\n");
+                    "------------------------------------------------------------------------------------------\n");
 
             //menu
             System.out.println("""
@@ -110,6 +143,7 @@ public class Main {
                     Resupply resupply = new Resupply();
                     resupply.beliStok(padiMain, jagungMain, kacangMain, kapasMain, uang);
                     int cek = resupply.getInput();
+
                     if (cek == 1){
                         padiMain= resupply.getPadiRE();
                         uang = resupply.getUangSisa();

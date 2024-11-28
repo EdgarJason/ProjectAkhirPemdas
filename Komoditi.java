@@ -1,3 +1,10 @@
+/*
+KELOMPOK 11 :
+- EDGAR JASON HUSIN / 245150201111047
+- DAVE CARNEGIE ONGSAH / 245150200111070
+- AL-KHWARIZMI WIDYA BAGASKARA / 245150200111068
+ */
+
 import java.util.Scanner;
 
 public class Komoditi {
@@ -62,17 +69,6 @@ public class Komoditi {
     public void setLumbungKacang(int lumbungKacang){
         this.lumbungPadi = lumbungKacang;
     }
-
-    public static void reduceKomoditi(){
-        quan1 [0] = (int) quan1 [0] *(2/10);
-        quan2 [0] = (int) quan2 [0] *(2/10);
-        quan3 [0] = (int) quan3 [0] *(2/10);
-        quan4 [0] = (int) quan4 [0] *(2/10);
-    }
-
-
-
-
 
     public static int getJagung(){
         int jagung = quan2[0];

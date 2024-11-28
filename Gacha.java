@@ -1,3 +1,10 @@
+/*
+KELOMPOK 11 :
+- EDGAR JASON HUSIN / 245150201111047
+- DAVE CARNEGIE ONGSAH / 245150200111070
+- AL-KHWARIZMI WIDYA BAGASKARA / 245150200111068
+ */
+
 import java.util.Scanner;
 
 public class Gacha {
@@ -32,7 +39,7 @@ public class Gacha {
                     Main.uang += 100000;
                 }
                 case 3 -> {
-                    System.out.println("Yah, kamu ga dapet apa-apa, Anda kurang beruntung!");
+                    System.out.println("Yah, kamu ga dapet apa-apa, kurang beruntung!");
                 }
                 case 4 -> {
                     System.out.println("Kamu diwajibkan bayar pajak sebanyak $1,000");
@@ -68,7 +75,7 @@ public class Gacha {
                 }
                 case 5 -> {
                     System.out.println("""
-                            Waduh, kamu dipenjara karena dijebak ladang sebelah, bagaimana ini...
+                            Waduh, kamu dipenjara karena dijebak toko sebelah, bagaimana ini...
                             1. Bayar uang jaminan $3,000
                             2. Tidak bisa bayar uang jaminan, terpaksa masuk penjara
                             3. Telpon kenalan polisi kamu
@@ -78,7 +85,7 @@ public class Gacha {
                     int pilihan5 = scan.nextInt();
 
                     switch (pilihan5) {
-                        case 1 -> {}
+                        case 1 -> Main.uang -=3000;
                         case 2 -> {
                             System.out.println("""
                                     Wah, akhirnya kamu masuk penjara, apa yang harus kamu lakukan
@@ -141,7 +148,7 @@ public class Gacha {
                     Main.uang -= 20000;
                 }
                 case 8 -> {
-                    System.out.println("Pertanian kamu disantet kebun sebelah! Ilmu gelap menghantui pertanian kamu!!");
+                    System.out.println("Lumbung kamu disantet toko sebelah! Ilmu gelap menghantui lumbung kamu!!");
                     System.out.println("""
                             Bagaimana solusinya?
                             1. Minta bantuan dukun dan lakukan ritual

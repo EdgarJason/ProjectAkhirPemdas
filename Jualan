@@ -1,3 +1,10 @@
+/*
+KELOMPOK 11 :
+- EDGAR JASON HUSIN / 245150201111047
+- DAVE CARNEGIE ONGSAH / 245150200111070
+- AL-KHWARIZMI WIDYA BAGASKARA / 245150200111068
+ */
+
 public class Jualan {
     public String[] nama2 ={"Asep Bensin","Sigit Kopling","Alex Stang","Budiono Siregar","Ucok Knalpot","Bunda Rahma","Dek Ambalabu","VENA Arteri Kapiler"};
     public String[] komoditi = {"Padi","Jagung","Kacang","Kapas"};
@@ -49,13 +56,13 @@ public class Jualan {
             padi = padi - terjual1;
             System.out.printf("Anda berhasil menjual padi sebanyak %dKg\n", terjual1);
             uang += terjual1 * 3;
-            System.out.println("Anda dapat uang sebanyak" + terjual1);
+            System.out.println("Anda dapat uang sebanyak $ " + terjual1*3);
         }
         else {
             padi = padi - terjual1;
             System.out.printf("Anda berhasil menjual padi sebanyak %dKg\n", terjual1);
             uang += terjual1 * 3;
-            System.out.println("Anda dapat uang sebanyak" + terjual1);
+            System.out.println("Anda dapat uang sebanyak $ " + terjual1*3);
         }
         komoditiJual = padi;
         uangJual = uang;
@@ -72,13 +79,13 @@ public class Jualan {
             jagung = jagung - terjual2;
             System.out.printf("Anda berhasil menjual jagung sebanyak %d kg\n", terjual2);
             uang += terjual2 * 4;
-            System.out.println("Anda dapat uang sebanyak" + terjual2);
+            System.out.println("Anda dapat uang sebanyak $ " + terjual2*4);
         }
         else {
             jagung = jagung - terjual2;
             System.out.printf("Anda berhasil menjual jagung sebanyak %d kg\n", terjual2);
             uang += terjual2 * 4;
-            System.out.println("Anda dapat uang sebanyak" + terjual2);
+            System.out.println("Anda dapat uang sebanyak $ " + terjual2*4);
         }
 
         komoditiJual = jagung;
@@ -96,13 +103,13 @@ public class Jualan {
             kacang = kacang - terjual4;
             System.out.printf("Anda berhasil menjual jagung sebanyak %d kg\n", terjual4);
             uang += terjual4 * 4;
-            System.out.println("Anda dapat uang sebanyak" + terjual4);
+            System.out.println("Anda dapat uang sebanyak $ " + terjual4*4);
         }
         else {
             kacang = kacang - terjual4;
             System.out.printf("Anda berhasil menjual jagung sebanyak %d kg\n", terjual4);
             uang += terjual4 * 4;
-            System.out.println("Anda dapat uang sebanyak" + terjual4);
+            System.out.println("Anda dapat uang sebanyak $ " + terjual4*4);
         }
         komoditiJual = kacang;
         uangJual = uang;
@@ -118,13 +125,13 @@ public class Jualan {
             kapas = kapas - terjual3;
             System.out.printf("Anda berhasil menjual jagung sebanyak %d kg\n", terjual3);
             uang += terjual3 * 5;
-            System.out.println("Anda dapat uang sebanyak" + terjual3);
+            System.out.println("Anda dapat uang sebanyak $ " + terjual3*5);
         }
         else {
             kapas = kapas - terjual3;
             System.out.printf("Anda berhasil menjual jagung sebanyak %d kg\n", terjual3);
             uang += terjual3 * 4;
-            System.out.println("Anda dapat uang sebanyak" + terjual3);
+            System.out.println("Anda dapat uang sebanyak $ " + terjual3*5);
         }
         komoditiJual = kapas;
         uangJual = uang;

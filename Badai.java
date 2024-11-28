@@ -1,6 +1,13 @@
+/*
+KELOMPOK 11 :
+- EDGAR JASON HUSIN / 245150201111047
+- DAVE CARNEGIE ONGSAH / 245150200111070
+- AL-KHWARIZMI WIDYA BAGASKARA / 245150200111068
+ */
+
 public class Badai {
-   private static int rows = 10;
-   private static int repetitions = 5;
+   private static int rows = 5;
+   private static int repetitions = 2;
 
    public static void tampilBadai (){
 
@@ -11,10 +18,10 @@ public class Badai {
                    System.out.print(" ");
                }
                if (i % 2 == 0) {
-                   System.out.println("\u001B[31m"+"BADAI");
+                   System.out.println("\u001B[31m"+"BADAI DATANG");
                }
                else {
-                   System.out.println("\u001B[34m"+"BADAI");
+                   System.out.println("\u001B[34m"+"BADAI DATANG");
                }
            }
            for (int i = rows - 2; i >= 0; i--) {
@@ -23,23 +30,23 @@ public class Badai {
                    System.out.print(" ");
                }
                if (i % 2 == 0) {
-                   System.out.println("\u001B[31m"+"BADAI");
+                   System.out.println("\u001B[31m"+"BADAI DATANG");
                }
                else{
-                   System.out.println("\u001B[34m"+"BADAI");
+                   System.out.println("\u001B[34m"+"BADAI DATANG");
                }
            }
+
        }
+       System.out.println("\u001B[0m");
    }
 
    public static int randomBadai(int x){
 
-       int mulaiBadai = (int) Math.random()*3;
+       int mulaiBadai = ((int) (Math.random()*99))+1;
        if (mulaiBadai == 1 || mulaiBadai == 2 || mulaiBadai == 3){
            if(x == 0) {
                tampilBadai();
-               Komoditi komoditi = new Komoditi();
-               Komoditi.reduceKomoditi();
                return 1;
            }
            else {

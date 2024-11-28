@@ -1,4 +1,10 @@
-import java.sql.SQLOutput;
+/*
+KELOMPOK 11 :
+- EDGAR JASON HUSIN / 245150201111047
+- DAVE CARNEGIE ONGSAH / 245150200111070
+- AL-KHWARIZMI WIDYA BAGASKARA / 245150200111068
+ */
+
 import java.util.Scanner;
 
 public class PowerUp {
@@ -8,19 +14,55 @@ public class PowerUp {
         powerUpQuantity[1] = y;
         powerUpQuantity[2] = z;
     }
-
+    private long padiPU;
+    private long jagungPU;
+    private long kacangPU;
+    private long kapasPU;
     public static void tampilPowerUp (){
-        System.out.println("Anda memiliki diskon resupply sebanyak : " + powerUpQuantity[0] );
-        System.out.println("Anda memiliki penambah harga jual sebanyak : " + powerUpQuantity[1]);
-        System.out.println("Anda memiliki perlindungan badai sebanyak : " + powerUpQuantity[2]);
+        System.out.printf(" Diskon Resupply = %d | Penambah Harga Jual = %d | Perlindungan Badai = %d",powerUpQuantity[0],powerUpQuantity[1],powerUpQuantity[2]);
     }
-    public static void perlindunganBadai (){
+    public int perlindunganBadai (long padi, long jagung, long kacang, long kapas){
 
             Badai badai = new Badai();
             int cek = Badai.randomBadai(powerUpQuantity[2]);
             if (cek == 2 && powerUpQuantity[2] > 0){
                 powerUpQuantity[2] -= 1;
+                System.out.println("Badai menerjang pertanian anda tapi untungnya anda punya perlindungan badai," + "\u001B[31m"+"perlindungan badai tersisa " +
+                        powerUpQuantity[2]+"\u001B[0m");
+                return 0;
             }
+            if (cek == 1){
+                this.padiPU = (long) (padi *2/10);
+                if(padiPU > 0){
+                    System.out.println("Badai merusak lumbung anda,\u001B[31m komoditi padi anda berkurang sebanyak "+ (padi-padiPU)+"\u001B[0m");
+                }
+                this.jagungPU = (long) (jagung *2/10);
+                if(jagungPU > 0){
+                    System.out.println("Badai merusak lumbung anda,\u001B[31m komoditi jagung anda berkurang sebanyak "+ (jagung-jagungPU)+"\u001B[0m");
+                }
+                this.kacangPU = (long) (kacang *2/10);
+                if (kacangPU > 0){
+                    System.out.println("Badai merusak lumbung anda,\u001B[31m komoditi kacang anda berkurang sebanyak "+ (kacang-kacangPU)+"\u001B[0m");
+                }
+                this.kapasPU = (long) (kapas *2/10);
+                if (kapasPU > 0){
+                    System.out.println("Badai merusak lumbung anda,\u001B[31m komoditi kapas anda berkurang sebanyak "+ (kapas-kapasPU)+"\u001B[0m");
+                }
+                return 1;
+            }
+            return 2;
+    }
+    public long getPadiPU(){
+        return padiPU;
+    }
+    public long getJagungPU(){
+        return jagungPU;
+    }
+    public long getKacangPU(){
+        return kacangPU;
+    }
+    public long getKapasPU(){
+        return kapasPU;
     }
     public static long beliPowerUp(long x){
         int pilih =0;

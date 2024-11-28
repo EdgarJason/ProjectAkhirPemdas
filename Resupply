@@ -1,3 +1,10 @@
+/*
+KELOMPOK 11 :
+- EDGAR JASON HUSIN / 245150201111047
+- DAVE CARNEGIE ONGSAH / 245150200111070
+- AL-KHWARIZMI WIDYA BAGASKARA / 245150200111068
+ */
+
 import java.util.Scanner;
 
 public class Resupply {
@@ -69,7 +76,9 @@ public class Resupply {
                 int beliPadi = scan.nextInt();
                 int padi = beliPadi * 100;
                 int hargaPadi = (200 * beliPadi);
-                if (beliPadi > komoditi.getLumbungPadi() + Komoditi.quan1[0]) {
+                if ((padiRE + padi) > komoditi.getLumbungPadi() ){
+                    this.padiRE = padiRE;
+                    this.uangSisa = uang;
                     System.out.println("Tidak dapat melakukan resupply, harap tambahkan kapasitas lumbung Anda");
                 } else if (uang < hargaPadi) {
                     System.out.println("Uang Anda tidak cukup");
@@ -85,7 +94,9 @@ public class Resupply {
                 int beliJagung = scan.nextInt();
                 int jagung = beliJagung * 100;
                 int hargaJagung = (250 * beliJagung);
-                if (beliJagung > komoditi.getLumbungPadi() + Komoditi.quan2[0]) {
+                if ((jagungRE + jagung) > komoditi.getLumbungPadi() ) {
+                    this.jagungRE = jagungRE;
+                    this.uangSisa = uang;
                     System.out.println("Tidak dapat melakukan resupply, harap tambahkan kapasitas lumbung Anda");
                 } else if (Main.uang < hargaJagung) {
                     System.out.println("Uang Anda tidak cukup");
@@ -101,7 +112,9 @@ public class Resupply {
                 int beliKacang = scan.nextInt();
                 int kacang = beliKacang * 100;
                 int hargaKacang = (300 * beliKacang);
-                if (beliKacang > komoditi.getLumbungPadi() + Komoditi.quan3[0]) {
+                if ((kacangRE + kacang) > komoditi.getLumbungPadi()) {
+                    this.kacangRE = kacangRE;
+                    this.uangSisa = uang;
                     System.out.println("Tidak dapat melakukan resupply, harap tambahkan kapasitas lumbung Anda");
                 } else if (Main.uang < hargaKacang) {
                     System.out.println("Uang Anda tidak cukup");
@@ -117,7 +130,9 @@ public class Resupply {
                 int beliKapas = scan.nextInt();
                 int kapas = beliKapas * 100;
                 int hargaKapas = (350 * beliKapas);
-                if (beliKapas > komoditi.getLumbungPadi() + Komoditi.quan4[0]) {
+                if ((kapasRE + kapas) > komoditi.getLumbungPadi()) {
+                    this.kapasRE = kapasRE;
+                    this.uangSisa = uang;
                     System.out.println("Tidak dapat melakukan resupply, harap tambahkan kapasitas lumbung Anda");
                 } else if (Main.uang < hargaKapas) {
                     System.out.println("Uang Anda tidak cukup");
